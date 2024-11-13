@@ -1,0 +1,16 @@
+jobs:
+  build:
+    runs-on: windows-latest
+    steps:
+      - name: Download Downloads.bat
+        run: |
+          Invoke-WebRequest -Url "https://gitlab.com/chamod12/1m_win-10_github_rdp/-/raw/main/Downloads.bat" -OutFile "Downloads.bat"
+      
+      - name: Run Downloads.bat
+        run: cmd /c Downloads.bat
+
+      - name: Connect to LiteManager
+        run: cmd /c show.bat
+
+      - name: Time Counter
+        run: cmd /c loop.bat
